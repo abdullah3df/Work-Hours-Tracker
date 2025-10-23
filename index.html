@@ -8,6 +8,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -141,7 +142,15 @@
             fontFamily: {
               sans: ['Inter', 'sans-serif'],
               cairo: ['Cairo', 'sans-serif'],
-            }
+            },
+             typography: (theme) => ({
+              DEFAULT: {
+                css: {
+                  '--tw-prose-bullets': theme('colors.indigo[500]'),
+                  '--tw-prose-invert-bullets': theme('colors.indigo[400]'),
+                },
+              },
+            }),
           }
         }
       }
@@ -183,9 +192,7 @@
         console.error("Firebase initialization error. Please check your firebaseConfig.", e);
       }
     </script>
-    <!-- Add Babel for JSX transpilation -->
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-    <!-- Change script type to text/babel for transpilation -->
-    <script type="text/babel" data-type="module" src="./index.tsx"></script>
+    <!-- The app is now pre-compiled, so Babel is no longer needed. -->
+    <script type="module" src="./index.js"></script>
 </body>
 </html>
